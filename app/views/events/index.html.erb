@@ -1,0 +1,19 @@
+<h1>Events</h1>
+
+<h4>Upcoming:</h4>
+<% if Event.upcoming.any? %>
+<ul><% Event.upcoming.each do |event| %>
+	<li><%= link_to event.description, event_path(event) %></li>
+<% end %>
+</ul>
+<% end %>
+
+<h4>Past:</h4>
+<% if Event.past.any? %>
+<ul><% Event.past.each do |event| %>
+	<li><%= link_to event.description, event_path(event) %></li>
+<% end %>
+</ul>
+<% end %>
+
+<p>Find me in app/views/events/index.html.erb</p>

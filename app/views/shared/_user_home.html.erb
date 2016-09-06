@@ -1,0 +1,20 @@
+<h5>You are signed in as <%= @user.username %></h5>
+<h3>You have created a total of <%= @user.events.length%>
+  events</h3>
+
+<h3>Events you are attending...</h3>
+<h4>Upcoming:</h4>
+<% if @user.upcoming_events.any? %>
+<ul><% @user.upcoming_events.each do |event| %>
+	<li><%= link_to event.description, event_path(event) %></li>
+<% end %>
+</ul>
+<% end %>
+
+<h4>Past:</h4>
+<% if @user.previous_events.any? %>
+<ul><% @user.previous_events.each do |event| %>
+	<li><%= link_to event.description, event_path(event) %></li>
+<% end %>
+</ul>
+<% end %>

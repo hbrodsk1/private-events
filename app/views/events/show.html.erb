@@ -1,0 +1,9 @@
+<h1>Events#show</h1>
+<h3><%= @event.description %></h3>
+<%= link_to @event.creator.username, user_path(@event.creator) %> created this event
+<h3>People attending this event:</h3>
+<ul><% @event.attendees.each do |attendee| %>
+	<li><%= link_to attendee.username, user_path(@event.attendees.ids) %></li>
+</ul>
+<% end %>
+<p>Find me in app/views/events/show.html.erb</p>
